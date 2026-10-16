@@ -1,0 +1,36 @@
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Environment / secrets -------------------------------------------------
+.env
+.env.local
+!.env.example
+
+# --- Local database --------------------------------------------------------
+*.sqlite3
+*.db
+
+# --- Node / Next.js (frontend has its own .gitignore too) ------------------
+node_modules/
+.next/
+out/
+npm-debug.log*
+*.tsbuildinfo
+
+# --- OS / editor -----------------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ---------------------------------------------------------------------------
+# Generated ML artifacts and data are intentionally NOT ignored: a fresh clone
+# can run the API and the dashboard immediately. Re-create them any time with
+#   python train_model.py --refresh-data
+# ---------------------------------------------------------------------------

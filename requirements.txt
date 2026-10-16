@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------------------
+# Alternative Credit Scoring Engine - Python dependencies
+#
+# Tested on Python 3.12 (Windows and Linux).
+#
+#   python -m venv .venv
+#   .venv/Scripts/python -m pip install -r requirements.txt   # Windows
+#   .venv/bin/python     -m pip install -r requirements.txt   # macOS / Linux
+#
+# NOTE on FastAPI/Starlette: ranges are used rather than exact pins because
+# FastAPI and Starlette are version-coupled and a machine with an
+# already-installed Starlette will otherwise end up with a mismatched pair
+# (symptom: "Router.__init__() got an unexpected keyword argument 'on_startup'").
+# A dedicated virtual environment avoids this entirely.
+# Verified working combinations: fastapi 0.115.0 + starlette 0.38.6, and
+# fastapi 0.143.3 + starlette 1.7.0.
+# ---------------------------------------------------------------------------
+
+# API layer
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.30,<1.0
+pydantic>=2.9,<3.0
+pydantic-settings>=2.5,<3.0
+
+# HTTP client used by the FastAPI TestClient in the test suite
+httpx>=0.27,<1.0
+
+# Data + ML core
+numpy>=2.0,<3.0
+pandas>=2.2,<3.0
+scikit-learn>=1.5,<2.0
+joblib>=1.4,<2.0
+xgboost>=3.0,<4.0
+shap>=0.46,<1.0
+
+# Persistence (optional - the API degrades gracefully to in-memory if absent)
+SQLAlchemy>=2.0,<3.0
+psycopg[binary]>=3.2,<4.0
+python-dotenv>=1.0,<2.0
+
+# Tests
+pytest>=8.0,<10.0

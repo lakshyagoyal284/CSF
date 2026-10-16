@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* The underwriting console uses a single, deliberate light theme so that risk
+   colours (green / amber / red) read identically on every officer's screen. */
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* Numeric inputs: keep tabular figures so figures line up between fields. */
+input[type="number"] {
+  font-variant-numeric: tabular-nums;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
